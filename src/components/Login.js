@@ -53,7 +53,6 @@ const Login = () => {
                 addUser({ uid: uid, email: email, displayName: displayName })
               );
               console.log(auth.currentUser);
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -80,7 +79,7 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           console.log("SignIN");
-          navigate("/browse");
+
           // ...
         })
         .catch((error) => {
