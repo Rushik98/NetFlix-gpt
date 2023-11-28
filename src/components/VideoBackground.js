@@ -8,16 +8,20 @@ const VideoBackground = ({ movieId }) => {
   // fetch trailer video && update the store with trailer data
   useMoviesTrailer(movieId);
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className=" w-screen">
       <iframe
-        className="w-screen aspect-video overflow-x-hidden"
+        className="w-screen aspect-video"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
           "?autoplay=1&mute=1"
         }
         title="YouTube video player"
+        // frameBorder="0"
+        // border= "none"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        // allowFullScreen= ""
+        // width="100%" height="100%"
       ></iframe>
     </div>
   );
