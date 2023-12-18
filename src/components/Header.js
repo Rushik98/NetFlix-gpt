@@ -48,7 +48,12 @@ const Header = () => {
   }, []);
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
-      <img className="w-44 mx-auto md:mx-0" alt="logo" src={Logo}></img>
+      <img
+        className="w-44 mx-auto md:mx-0"
+        alt="logo"
+        src={Logo}
+        onClick={handleGptSearch}
+      ></img>
       <div className="flex justify-end ">
         <h2 className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-900 text-2xl text-left m-4 p-3">
           {user?.displayName}

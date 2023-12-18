@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
+import MovieCards from "./MovieCards";
 
 const GptMovieSuggestion = () => {
   const { movieName, tmdbMovieResult } = useSelector((store) => store.gpt);
@@ -24,33 +25,10 @@ const GptMovieSuggestion = () => {
   return (
     <div className="p-4 m-4 bg-black text-white bg-opacity-80">
       <div>
-        {/* {movieName?.map((movieNames, index) => {
-        })} */}
-        <MovieList
-          // key={movieName}
-          title={movieName[0]}
-          movies={tmdbMovieResult[0]}
-        />
-        <MovieList
-          // key={movieName}
-          title={movieName[1]}
-          movies={tmdbMovieResult[1]}
-        />
-        <MovieList
-          // key={movieName}
-          title={movieName[2]}
-          movies={tmdbMovieResult[2]}
-        />
-        <MovieList
-          // key={movieName}
-          title={movieName[3]}
-          movies={tmdbMovieResult[3]}
-        />
-        <MovieList
-          // key={movieName}
-          title={movieName[4]}
-          movies={tmdbMovieResult[4]}
-        />
+        {movieName?.map((movie, index) => {
+          return <MovieList key={index} title={movie} movies={tmdbMovieResult[index]} />
+        })}
+
       </div>
     </div>
   );

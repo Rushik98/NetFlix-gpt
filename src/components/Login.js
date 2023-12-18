@@ -34,7 +34,6 @@ const Login = () => {
 
     if (!isSignInForm) {
       //Sign Up Logic
-      console.log("Create");
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
@@ -79,7 +78,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          console.log("SignIN");
 
           // ...
         })

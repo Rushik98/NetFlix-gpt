@@ -14,8 +14,8 @@ const GptSearchBar = () => {
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
-        movie +
-        "&include_adult=false&language=en-US&page=1",
+      movie +
+      "&include_adult=false&language=en-US&page=1",
       API_OPTIONS
     );
     const json = await data.json();
@@ -24,7 +24,6 @@ const GptSearchBar = () => {
   };
 
   const handleNetflixGptSearch = async () => {
-    console.log(searchValue.current.value);
 
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
@@ -35,7 +34,6 @@ const GptSearchBar = () => {
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
-    console.log(gptResults.choices?.[0]?.message?.content);
 
     // we get 5 different movies
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
@@ -46,7 +44,6 @@ const GptSearchBar = () => {
 
     const tmdbResults = await Promise.all(promiseArray);
 
-    // console.log("tmdbResults", tmdbResults);
 
     dispatch(
       addGptMovieResult({ movieName: gptMovies, tmdbMovieResult: tmdbResults })
